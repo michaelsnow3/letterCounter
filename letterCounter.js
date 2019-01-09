@@ -3,9 +3,14 @@ function countLetters (str) {
   var str = str.split(" ").join();
   for (var i = 0; i < str.length; i++){
     if(letterObj[str[i]]){
-      letterObj[str[i]] += 1;
+      letterObj[str[i]].count += 1;
+      letterObj[str[i]].indices.push(i);
     } else {
-      letterObj[str[i]] = 1;
+      var addLetter = {
+        count: 1,
+        indices: [i]
+      }
+      letterObj[str[i]] = addLetter;
     }
   }
   return letterObj;
